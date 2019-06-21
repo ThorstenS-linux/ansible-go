@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: go
   author: ThorstenS-linux
   description: this role installs golang
   license: GPLv3
