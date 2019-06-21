@@ -1,13 +1,16 @@
 ---
-- set_fact:
+- name: set fact for armv6l
+  set_fact:
     architecture: armv6l
   when: ansible_architecture == 'armv6l'
 
-- set_fact:
+- name: set fact for i386
+  set_fact:
     architecture: 386
   when: ansible_architecture == 'i386'
 
-- set_fact:
+- name: set fact for amd64
+  set_fact:
     architecture: amd64
   when: ansible_architecture == 'x86_64'
 
@@ -33,5 +36,3 @@
     - go
     - godoc
     - gofmt
-
-
