@@ -1,5 +1,5 @@
 # ansible-go
-installs go on linux
+installs golang (defaults to v1.12.6) on linux (arch amd64, i386 and armv6l ) under /opt/go-$version.
 
 ```bash
 $ ansible-galaxy install --roles-path /tmp ThorstenS-linux.ansible_role_go
@@ -14,6 +14,7 @@ $ cat >> golang.yml <<EOF
   become: yes
   vars:
     - go_installdir: "/usr/local/bin"
+    - go_version: 1.12.6
   roles:
     - ThorstenS-linux.ansible_role_go
 EOF
