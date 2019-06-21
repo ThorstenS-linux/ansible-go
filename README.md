@@ -3,7 +3,7 @@ installs golang (defaults to v1.12.6) on linux (arch amd64, i386 and armv6l ) un
 
 ## example
 ```bash
-$ ansible-galaxy install --roles-path /tmp ThorstenS-linux.ansible_role_go
+$ ansible-galaxy install --roles-path /tmp ThorstenS-linux.go
 $ export ANSIBLE_ROLES_PATH=/tmp
 
 $ cat >> golang.yml <<EOF
@@ -17,7 +17,7 @@ $ cat >> golang.yml <<EOF
     - go_installdir: "/usr/local/bin"
     - go_version: 1.12.6
   roles:
-    - ThorstenS-linux.ansible_role_go
+    - ThorstenS-linux.go
 EOF
 $ chmod +x golang.yml
 $ ./golang.yml
