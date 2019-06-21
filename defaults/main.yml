@@ -1,0 +1,6 @@
+---
+go_version: 1.12.6
+go_download: "https://dl.google.com/go/go{{ go_version }}.linux-{{ architecture }}.tar.gz"
+go_installdir: "~/bin"
+
+

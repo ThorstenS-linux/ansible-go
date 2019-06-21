@@ -1,0 +1,37 @@
+---
+- set_fact:
+    architecture: armv6l
+  when: ansible_architecture == 'armv6l'
+
+- set_fact:
+    architecture: 386
+  when: ansible_architecture == 'i386'
+
+- set_fact:
+    architecture: amd64
+  when: ansible_architecture == 'x86_64'
+
+- name: create go dir
+  file:
+    path: "/opt/go-{{ go_version }}"
+    state: directory
+
+- name: get go
+  unarchive:
+    src: "{{ go_download }}"
+    dest: "/opt/go-{{ go_version }}"
+    creates: "/opt/go-{{ go_version }}/go/bin/go"
+    remote_src: True
+  when: "not ansible_check_mode"
+
+- name: symlink go
+  file:
+    src: "/opt/go-{{ go_version }}/go/bin/{{ item }}"
+    dest: "{{ go_installdir }}/{{ item }}"
+    state: link
+  with_items:
+    - go
+    - godoc
+    - gofmt
+
+
